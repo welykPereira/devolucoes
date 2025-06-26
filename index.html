@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devolucoes Revistas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+</head>
+<body>
+
+    <div class="container">
+        <header class="app-header">
+            <h1>Devolucoes Revistas</h1>
+            <p>Registre os resultados do dia de forma rápida e fácil.</p>
+        </header>
+
+        <div class="card">
+            <form id="daily-form">
+                </form>
+
+            <div class="totals-summary">
+                <div class="total-line">
+                    <span>Total Vendido</span>
+                    <strong id="total-vendido">R$ 0,00</strong>
+                </div>
+                <div class="total-line">
+                    <span>Total a Pagar</span>
+                    <strong id="total-a-pagar" class="valor-pagar">R$ 0,00</strong>
+                </div>
+                 <div class="total-line gain">
+                    <span>Ganho Real Total</span>
+                    <strong id="ganho-real" class="ganho-real">R$ 0,00</strong>
+                </div>
+                
+                <div class="carreto-group">
+                    <label for="carreto-input">(-) Custo do Carreto</label>
+                    <input type="number" id="carreto-input" placeholder="0.00" step="0.01">
+                </div>
+                
+                <div class="total-line final-profit">
+                    <span>Lucro Líquido do Dia</span>
+                    <strong id="lucro-revistas">R$ 0,00</strong>
+                </div>
+            </div>
+
+            <button type="submit" form="daily-form" class="btn-submit" id="submit-button" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                Gerar Relatório
+            </button>
+        </div>
+
+        <div class="history-section">
+            <h2>
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                Histórico
+            </h2>
+            <ul id="history-list">
+                </ul>
+        </div>
+    </div>
+
+    <div id="report-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Relatório para Compartilhar</h2>
+            <pre id="report-text-content"></pre>
+            <div class="modal-actions">
+                <button id="copy-button">Copiar Texto</button>
+                <button id="close-modal-button">Fechar</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Desenvolvido por welyk.</p>
+    </footer>
+
+    <script src="script.js"></script>
+        <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').then(registration => {
+            console.log('Service Worker registrado com sucesso:', registration.scope);
+          }).catch(error => {
+            console.log('Falha ao registrar o Service Worker:', error);
+          });
+        });
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "Devolucoes Revistas",
+  "short_name": "Devolucao",
+  "description": "Aplicativo para registro semanal de vendas e encalhe de revistas.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f0f2f5",
+  "theme_color": "#007aff",
+  "icons": [
+    {
+      "src": "icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

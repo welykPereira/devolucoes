@@ -1,0 +1,265 @@
+/* --- GERAL E SETUP --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Mono&display=swap');
+
+:root {
+    --primary-color: #007aff;
+    --primary-light: #e6f2ff;
+    --background-color: #f0f2f5;
+    --card-background: #ffffff;
+    --text-primary: #1d1d1f;
+    --text-secondary: #6e6e73;
+    --gain-color: #34c759;
+    --loss-color: #ff3b30;
+    --border-color: #d1d1d6;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --final-profit-color: #0056b3;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 20px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.app-header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.app-header p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-top: 5px;
+}
+
+/* --- CARD E FORMULÁRIO --- */
+.card {
+    background-color: var(--card-background);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 32px var(--shadow-color);
+    margin-bottom: 40px;
+}
+
+.dist-group {
+    margin-bottom: 25px;
+}
+
+.dist-group h3 {
+    font-size: 1.25rem;
+    margin: 0 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+label {
+    display: block;
+    font-size: 0.9em;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.calc-result {
+    font-size: 0.9em;
+    margin-top: 10px;
+    padding: 8px;
+    background-color: var(--background-color);
+    border-radius: 6px;
+    line-height: 1.5;
+}
+
+.ganho-real { color: var(--gain-color); }
+.valor-pagar { color: var(--loss-color); }
+
+/* --- TOTAIS E BOTÃO --- */
+.totals-summary {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.total-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.total-line span {
+    color: var(--text-secondary);
+}
+
+.total-line strong {
+    font-weight: 700;
+}
+
+.total-line.gain strong {
+    font-size: 1.2rem;
+    color: var(--gain-color);
+}
+
+.carreto-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-top: 1px dashed var(--border-color);
+    border-bottom: 1px dashed var(--border-color);
+    margin: 15px 0;
+}
+.carreto-group label {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0;
+    color: var(--text-primary);
+}
+.carreto-group input {
+    width: 130px;
+    text-align: right;
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.total-line.final-profit {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--final-profit-color);
+    margin-top: 20px;
+}
+
+.btn-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+}
+
+.btn-submit:disabled {
+    background-color: #b0b0b0;
+    cursor: not-allowed;
+}
+
+/* --- HISTÓRICO --- */
+.history-section h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.8rem;
+    color: var(--text-primary);
+}
+.history-section ul { list-style: none; padding: 0; }
+.history-item {
+    background-color: var(--card-background);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+}
+.history-item .date {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+.history-item .details { line-height: 1.6; }
+.history-item .day-total-gain { margin-top: 15px; font-weight: 700; }
+
+/* --- MODAL --- */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: none; justify-content: center; align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+.modal-content {
+    background-color: #fff; padding: 30px; border-radius: 16px;
+    width: 90%; max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: slideUp 0.3s ease;
+}
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.modal-content h2 { margin-top: 0; }
+#report-text-content {
+    background-color: var(--background-color);
+    padding: 15px; border-radius: 8px;
+    font-family: 'Roboto Mono', monospace;
+    white-space: pre-wrap; word-wrap: break-word;
+    max-height: 40vh; overflow-y: auto;
+    border: 1px solid var(--border-color);
+}
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+.modal-actions button {
+    padding: 12px 24px; border-radius: 8px; border: none;
+    cursor: pointer; font-weight: 700; font-size: 1rem;
+    transition: all 0.3s ease;
+}
+#copy-button { background-color: var(--primary-color); color: #fff; }
+#close-modal-button { background-color: #e5e5ea; color: var(--text-primary); }
+#copy-button:hover { background-color: #0056b3; }
+#close-modal-button:hover { background-color: #d1d1d6; }
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    color: var(--text-secondary);
+}
